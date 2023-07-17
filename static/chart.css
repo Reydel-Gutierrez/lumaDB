@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  .chart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    
+  }
+  h5 {
+    text-align: center;
+  }
+  canvas {
+    max-width: 600%;
+    height: auto;
+  }
+
+

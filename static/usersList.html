@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Users</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">View Users</h1>
+        <table id="userTable" class="table table-bordered table-hover mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically populated using JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Dummy data for demonstration purposes
+        var users = [
+            { id: 1, name: "John Doe", email: "john.doe@example.com", role: "Admin", status: "Active" },
+            { id: 2, name: "Jane Smith", email: "jane.smith@example.com", role: "User", status: "Active" },
+            { id: 3, name: "David Brown", email: "david.brown@example.com", role: "User", status: "Inactive" }
+        ];
+
+        // Function to populate table with user data
+        function populateTable() {
+            var tableBody = document.getElementById("userTable").getElementsByTagName("tbody")[0];
+
+            // Clear existing table rows
+            tableBody.innerHTML = "";
+
+            // Loop through users data and add rows to table
+            for (var i = 0; i < users.length; i++) {
+                var row = document.createElement("tr");
+                var idCell = document.createElement("td");
+                idCell.textContent = users[i].id;
+                row.appendChild(idCell);
+                var nameCell = document.createElement("td");
+                nameCell.textContent = users[i].name;
+                row.appendChild(nameCell);
+                var emailCell = document.createElement("td");
+                emailCell.textContent = users[i].email;
+                row.appendChild(emailCell);
+                var roleCell = document.createElement("td");
+                roleCell.textContent = users[i].role;
+                row.appendChild(roleCell);
+                var statusCell = document.createElement("td");
+                statusCell.textContent = users[i].status;
+                row.appendChild(statusCell);
+                tableBody.appendChild(row);
+            }
+        }
+
+        // Call the populateTable function to initially populate the table
+        populateTable();
+    </script>
+</body>
+</html>

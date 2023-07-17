@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  .list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    
+  }
+  h1 {
+    text-align: center;
+  }
+  .inspections {
+    display: flex;
+    justify-content: space-between;
+  }
+  .inspection-list {
+    flex-basis: 25%;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  li:before {
+    content: "•";
+    margin-right: 10px;
+  }
+  .daily {
+    color: #990000;
+  }
+  .weekly {
+    color: #0066cc;
+  }
+  .monthly {
+    color: #05a110;
+  }
+  .quarterly {
+    color: #cc7400;
+  }

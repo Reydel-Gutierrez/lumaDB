@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inspection Report Form</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label, select, textarea, input[type="submit"] {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inspection Report Form</h1>
+    <form id="inspectionForm">
+        <div class="form-group">
+            <label for="inspectionType">Type of Inspection:</label>
+            <select id="inspectionType" name="inspectionType" class="form-control">
+                <option value="Type 1"></option>
+                <option value="Type 1">Daily Inspection</option>
+                <option value="Type 2">Weekly Inspection</option>
+                <option value="Type 3">Monthly Inspection</option>
+                <option value="Type 3">Quarterly Inspection</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status" class="form-control">
+                <option value="Status 1"></option>
+                <option value="Status 1">Good</option>
+                <option value="Status 3">Needs Attention</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="report">Report:</label>
+            <textarea id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+
+    <script>
+        // Add event listener for form submission
+        document.getElementById('inspectionForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Get form data
+            var formData = new FormData(event.target);
+
+            // Convert form data to JSON object
+            var json = {};
+            for (var entry of formData.entries()) {
+                json[entry[0]] = entry[1];
+            }
+
+            // Log form data as JSON object
+            console.log(json);
+
+            // You can perform additional actions with the form data, such as sending it to a server for processing
+            // or displaying a confirmation message to the user.
+        });
+    </script>
+</body>
+</html>

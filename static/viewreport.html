@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Inspections</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 6px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">View Inspections</h1>
+        <table id="inspectionTable" class="table table-bordered table-hover mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically populated using JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Dummy data for demonstration purposes
+        var inspections = [
+            { id: 1, type: "Fire", name: "Building A", date: "2023-03-15", status: "Completed", report: "Link" },
+            { id: 2, type: "Safety", name: "Building B", date: "2023-03-16", status: "In Progress", report: "Link" },
+            { id: 3, type: "Electrical", name: "Building C", date: "2023-03-17", status: "Not Started", report: "this is an ungoinng report to the name of reydel Guiterrez" },
+            { id: 4, type: "Fire", name: "Building A", date: "2023-03-15", status: "Completed", report: "Link" },
+            { id: 5, type: "Safety", name: "Building B", date: "2023-03-16", status: "In Progress", report: "Link" },
+            { id: 6, type: "Electrical", name: "Building C", date: "2023-03-17", status: "Not Started", report: "this is an ungoinng report to the name of reydel Guiterrez" },
+            { id: 7, type: "Fire", name: "Building A", date: "2023-03-15", status: "Completed", report: "Link" },
+            { id: 8, type: "Safety", name: "Building B", date: "2023-03-16", status: "In Progress", report: "Link" },
+            { id: 11, type: "Electrical", name: "Building C", date: "2023-03-17", status: "Not Started", report: "this is an ungoinng report to the name of reydel Guiterrez" },
+            { id: 12, type: "Fire", name: "Building A", date: "2023-03-15", status: "Completed", report: "Link" },
+            { id: 21, type: "Safety", name: "Building B", date: "2023-03-16", status: "In Progress", report: "Link" },
+            { id: 32, type: "Electrical", name: "Building C", date: "2023-03-17", status: "Not Started", report: "this is an ungoinng report to the name of reydel Guiterrez" }
+        ];
+
+        // Function to populate table with inspection data
+        function populateTable() {
+            var tableBody = document.getElementById("inspectionTable").getElementsByTagName("tbody")[0];
+
+            // Clear existing table rows
+            tableBody.innerHTML = "";
+
+            // Loop through inspections data and add rows to table
+            for (var i = 0; i < inspections.length; i++) {
+                var row = document.createElement("tr");
+                var idCell = document.createElement("td");
+                idCell.textContent = inspections[i].id;
+                row.appendChild(idCell);
+                var typeCell = document.createElement("td");
+                typeCell.textContent = inspections[i].type;
+                row.appendChild(typeCell);
+                var nameCell = document.createElement("td");
+                nameCell.textContent = inspections[i].name;
+                row.appendChild(nameCell);
+                var dateCell = document.createElement("td");
+                dateCell.textContent = inspections[i].date;
+                row.appendChild(dateCell);
+                var statusCell = document.createElement("td");
+                statusCell.textContent = inspections[i].status;
+                row.appendChild(statusCell);
+                var reportCell = document.createElement("td");
+                reportCell.textContent = inspections[i].report;
+                row.appendChild(reportCell);
+                tableBody.appendChild(row);
+            }
+        }
+
+        // Call the populateTable function to initially populate the table
+        populateTable();
+    </script>
+</body>
+</html>

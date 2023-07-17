@@ -1,14 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="index2.css" rel="stylesheet">
+<link href="list.css" rel="stylesheet">
+<link href="chart.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 </head>
-<body>
-    <h1>Welcome Home</h1> 
-    <div id="name"></div>
+<body class="w3-light-grey">
+
+<!-- Top container --> 
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">Miami Central Maintanace Logs</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <!-- <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px"> -->
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>User</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    
+  </div>
+  <div class="w3-bar-block">
+    <!-- <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a> -->
+    <a href="index2.html" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Report Maintenance Log</a>
+    <a href="viewreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  View Maintenance Logs</a>
+    <a href="usersList.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Users</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i>My Dashboard</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>6</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Notes</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>12</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>View Maintenance Logs</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>12</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Share a log</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>50</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Users</h4>
+      </div>
+    </div>
+</div>
+
+<hr>
+<hr>
+<hr>
+
+<div class="w3-row-padding w3-margin-bottom">
+    <div class="recent-container">
+      <h5><b>Recent Logs</b></h5>
+      <table class="w3-table-all">
+        <tr>
+          <th>ID</th>
+          <th>Type of Inspection</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Report</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Daily Inspection</td>
+          <td>Reydel Gutierrez</td>
+          <td>2023-04-01</td>
+          <td>Needs Work</td>
+          <td>Pavers need repairs</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Daily Inspection</td>
+          <td>Reydel Gutierrez</td>
+          <td>2023-04-02</td>
+          <td>Good</td>
+          <td>No issues found</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Monthly Inspection</td>
+          <td>Reydel Gutierrez</td>
+          <td>2023-04-03</td>
+          <td>Good</td>
+          <td>No issues found</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Monthly Inspection</td>
+          <td>Reydel Gutierrez</td>
+          <td>2023-04-03</td>
+          <td>Good</td>
+          <td>Checked all the repairs done yesterday and everything was ok, No issues or leaks found.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Monthly Inspection</td>
+          <td>Reydel Gutierrez</td>
+          <td>2023-04-03</td>
+          <td>Good</td>
+          <td>No issues found</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Monthly Inspection</td>
+          <td>Reydel Gutierrez</td>
+          <td>2023-04-03</td>
+          <td>Good</td>
+          <td>No issues found</td>  
+        </tr>
+      </table>
+    </div>
+  </div>
+  <hr>
+  <hr>
+  <hr>
+  
+
+  <div class="list-container">
+    <h5><b>Inspections</b></h5>
+    <div class="inspections">
+      <div class="inspection-list">
+        <h5>Daily Inspections</h5>
+        <ul class="daily">
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+        </ul>
+      </div>
+      <div class="inspection-list">
+        <h5>Weekly Inspections</h5>
+        <ul class="weekly">
+          <li>Inspection 4</li>
+          <li>Inspection 5</li>
+          <li>Inspection 6</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+        </ul>
+      </div>
+      <div class="inspection-list">
+        <h5>Monthly Inspections</h5>
+        <ul class="monthly">
+          <li>Inspection 7</li>
+          <li>Inspection 8</li>
+          <li>Inspection 9</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+        </ul>
+      </div>
+      <div class="inspection-list">
+        <h5>Quarterly Inspections</h5>
+        <ul class="quarterly">
+          <li>Inspection 10</li>
+          <li>Inspection 11</li>
+          <li>Inspection 12</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+          <li>Inspection 1</li>
+          <li>Inspection 2</li>
+          <li>Inspection 3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<hr>
+<hr>
+<hr>
+
+  <div class="chart-container">
+    <h5><b>Records Chart</b></h5>
+    <canvas id="buildingChart"></canvas>
+  </div>
+
+  <script>
+    // Example data for the chart
+    var activities = ['Daily Inspections', 'Weekly Inspections', 'Monthly Inspections', 'Quarterly Inspections'];
+    var reportedActivities = [12, 8, 6, 4];
+
+    // Get the canvas element and create the chart 
+    var ctx = document.getElementById('buildingChart').getContext('2d');
+    var buildingChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: activities,
+        datasets: [{
+          label: 'Reported Activities',
+          data: reportedActivities,
+          backgroundColor: 'rgba(75, 192, 192, 0.8)', // Example color
+          borderWidth: 0
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: Math.max(...reportedActivities) + 1 // Set maximum value on y-axis
+          }
+        },
+        legend: {
+          display: false
+        }
+      }
+    });
+  </script>
+
+<hr>
+<hr>
+<hr>
+
+<div class="chart-container">
+<h5><b>Performance Chart</b></h5>
+  <canvas id="myChart"></canvas>
+</div>
+</div>
+
+<script>
+    // Get the canvas element and create a chart
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line', // Use 'line' for a line chart
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // Example labels for x-axis (time period)
+        datasets: [{
+          label: 'Overall Building Performance', // Label for the dataset
+          data: [10, 15, 12, 17, 14], // Example data (performance values)
+          fill: false, // Set to false to create a line chart without filled areas
+          borderColor: 'rgba(75, 192, 192, 1)', // Example line color
+          tension: 0.1 // Set tension to control the curvature of the line
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 31 // Example max value for y-axis (performance values)
+          }
+        }
+      }
+    });
+  </script>
+
+
+  <hr>
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h4></h4>
+    <p>Created it by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Reydel Gutierrez</a></p>
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+<script src="chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
-<script src="routes/signin.js"></script>
 </html>

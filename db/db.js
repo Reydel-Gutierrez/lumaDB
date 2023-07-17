@@ -19,31 +19,45 @@ connection.on('error', (err) => {
 
 
 // db route for user registration
-const { Schema } = mongoose;
-
-const userSchema = new Schema({
-    name: {
-        type: String,
-        required: true 
-    },
-    email: { 
-        type: String, 
-        required: true 
-    },
-    password: { 
-        type: String, 
-        required: true 
-    },
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
-const User = mongoose.model('User', userSchema);
-//export user to server.js
-module.exports = User;
+User = mongoose.model('User', userSchema);
 
+//db route for user sign in
+
+// const signinSchema = new mongoose.Schema({
+//   username: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//   },
+//   password: {
+//     type: String,
+//     required: true,
+//   },
+// });
+
+// const signinUser = mongoose.model('signinUser', signinSchema);
 
 
 //exporting modules
 module.exports = {
+    User,
+    // signinUser,
     createConnection,
     connection
 };

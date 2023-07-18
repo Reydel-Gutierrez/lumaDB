@@ -19,6 +19,11 @@ form.addEventListener('submit', async (event) => {
       if (response.ok) {
         alert("User Found");
         const data = await response.json();
+
+        // display user name in  Home page
+        // var userInfo = "New User";
+        // document.getElementById("user-info").innerHTML = "<h1>Welcome, " + userInfo + "</h1>";
+
         console.log(data);
         const user = data.user;
         console.log(user);

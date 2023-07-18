@@ -20,7 +20,10 @@ form.addEventListener('submit', async (event) => {
         alert("User Found");
         const data = await response.json();
         console.log(data);
+        const user = data.user;
+        console.log(user);
         alert("redirecting to Home");
+
         window.location.href = "http://localhost:3000/home.html";
         
         //Handle successful sign-in

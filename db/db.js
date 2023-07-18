@@ -18,6 +18,7 @@ connection.on('error', (err) => {
 });
 
 
+
 // db route for user registration
 const userSchema = new mongoose.Schema({
   name: {
@@ -36,6 +37,19 @@ const userSchema = new mongoose.Schema({
 });
 
 User = mongoose.model('User', userSchema);
+
+const inspectionReportSchema = new mongoose.Schema({
+  typeOfIns: String,
+  name: String,
+  date: Date,
+  status: String,
+  report: String,
+});
+
+// Create the InspectionReport model
+InspectionReport = mongoose.model('InspectionReport', inspectionReportSchema);
+
+
 
 //db route for user sign in
 
@@ -57,6 +71,7 @@ User = mongoose.model('User', userSchema);
 //exporting modules
 module.exports = {
     User,
+    InspectionReport,
     // signinUser,
     createConnection,
     connection

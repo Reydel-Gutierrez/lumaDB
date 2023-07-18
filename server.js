@@ -53,11 +53,28 @@ app.post('/signin', async (req, res) => {
         return res.status(401).json({ error: 'Incorrect password' });
       }
       
-      //req.session.user = user;
-      // Return a token or other information to the client
       return res.json({ message: 'Sign-in successful', user });
     } catch (error) {
       return res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  const {inspectionReport} = require('./db/db.js');
+
+  app.post('/inspectionReport', async (req, res) => {
+    try {
+      const { typeOfIns, name, date, status, report } = req.body;
+  
+      // Save the inspection report to the database
+      const inspection = new InspectionReport({ typeOfIns, name, date, status, report });
+      await inspection.save();
+  
+      // Return a success response
+      res.status(200).json({ message: 'Inspection report submitted successfully' });
+    } catch (error) {
+      console.error('Error submitting inspection report:', error);
+      // Return an error response
+      res.status(500).json({ error: 'Internal server error' });
     }
   });
 
@@ -71,24 +88,21 @@ app.post('/signin', async (req, res) => {
     // Return the user information to the client
     return res.json({ user });
   });
+
+  app.get('/inspectionReports', async (req, res) => {
+    try {
+      // Fetch all inspection reports from the database
+      const reports = await InspectionReport.find();
   
-
-//non request storing data
-
-// const mongoose = require('mongoose');
-// const {User} = require('./db/db.js');
-// app.use(bodyParser.json());
-
-// const newUser = new User({
-//     name: 'lia',
-//     email: 'reydelgutierr',
-//     password: 'rg012'
-// });
-
-// newUser.save()
-//     .then(result => console.log(result))
-//     .catch(error => console.error(error));
-
+      // Return the reports as JSON response
+      res.status(200).json({ reports });
+    } catch (error) {
+      console.error('Error fetching inspection reports:', error);
+      // Return an error response
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
 
 //start server
 app.listen(port, hostname, () => {

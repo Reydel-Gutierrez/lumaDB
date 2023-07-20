@@ -10,12 +10,25 @@
 <link href="index2.css" rel="stylesheet">
 <link href="list.css" rel="stylesheet">
 <link href="chart.css" rel="stylesheet">
+<link href="weather.scss" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+hr {
+      width: 100%;
+      height: 1px; /* Adjust the height as needed */
+      border: none;
+      opacity: 0;
+      background-color: #e5e5e500; /* Set the desired background color */
+      margin: 10px 0; /* Adjust the margin to control the space */
+    }
+
 </style>
 </head>
 <body class="w3-light-grey">
@@ -46,14 +59,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <!-- <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a> -->
     <a href="index2.html" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
-    <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Work Orders</a>
-    <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Inspection</a>
-    <a href="viewreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  View Inspection</a>
+    <a href="workorder.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Work Orders</a>
+    <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Inspections</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Contracts</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Units & Assets</a>
     <a href="usersList.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Users</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Vendors History</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Fire Alarm Log</a>
+    <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Fire System</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Water & Electrical Meters</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Service Calls</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Tasks List</a>
@@ -122,6 +135,88 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <hr>
 <hr>
 <hr>
+
+<div class="container py-5">
+  <div class="card" style="background-color: rgba(255, 255, 255, 0.8);">
+    <div class="card-body">
+
+      <div class="d-flex justify-content-between">
+        <h6 class="mb-0">Miami Central</h6>
+        <h6 class="mb-0" id="time">Loading...</h6>
+      </div>
+
+      <div class="d-flex flex-column align-items-center mt-4 mb-3">
+        <h6 class="display-4 mb-0 font-weight-bold" id="Temp">Loading...</h6>
+        <span class="small" id="Feelslike">Loading...</span>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <p class="mb-0" id="rain">Rain: Loading...</p>
+          <p class="mb-0" id="wind">Wind: Loading...</p>
+        </div>
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp" width="70px" id="weatherIcon">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<p id="Temp"></p>
+<p id="Feelslike"></p>
+
+  <script>
+    //date
+          // Create a new Date object to get the current date and time
+      const currentDate = new Date();
+
+      // Get the individual components of the current date and time
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth() + 1; // January is month 0, so add 1
+      const day = currentDate.getDate();
+      const hours = currentDate.getHours();
+      const minutes = currentDate.getMinutes();
+      const seconds = currentDate.getSeconds();
+
+      // Format the date and time as a string
+      const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      document.getElementById('time').textContent = `${formattedDateTime}`;
+    // Function to fetch weather data
+    async function getWeatherData() {
+      const apiKey = '210658a9f1dd036edda279890d990fd2'; // Replace this with your API key
+      const city = 'Miami'; // Replace this with your desired city
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+      function converter(cel){
+        return Math.round((cel * 9/5) + 32);
+      }
+
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        var fTemp = converter(data.main.temp);
+        var fFeelsLike = converter(data.main.feels_like);
+
+        console.log(data);
+
+        // Update the temperature element with weather data
+        document.getElementById('Temp').textContent = `${fTemp} °F`;
+        document.getElementById('Feelslike').textContent = `Feels Like: ${fFeelsLike} °F`;
+        document.getElementById('rain').textContent = `Weather: ${data.weather[0].description}`;
+        document.getElementById('wind').textContent = `Wind: ${data.wind ? data.wind.speed + ' m/s' : 'N/A'}`;
+        document.getElementById('Feelslike').textContent = `Feels Like: ${fFeelsLike} °F`;
+
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+      }
+    }
+    // Call the function to get weather data when the page loads
+    window.addEventListener('load', getWeatherData);
+  </script>
+
+
 
 <div class="w3-row-padding w3-margin-bottom">
     <div class="recent-container">
@@ -371,5 +466,6 @@ function w3_close() {
 <script src="chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="weather.js"></script>
 </body>
 </html>

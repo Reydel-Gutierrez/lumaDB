@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Open Work Orders</title>
+  <style>
+    /* Add your custom styles here */
+    hr {
+      width: 100%;
+      height: 1px; /* Adjust the height as needed */
+      border: none;
+      opacity: 0;
+      background-color: #e5e5e500; /* Set the desired background color */
+      margin: 10px 0; /* Adjust the margin to control the space */
+    }
+    .btn a {
+    color: inherit; /* Inherit text color from the parent button (white in this case) */
+    text-decoration: none; /* Remove underline from the link */
+    font-weight: bold;
+    
+  }
+    #completedbtn {
+    color: rgb(255, 255, 255); /* Inherit text color from the parent button (white in this case) */
+    text-decoration: none; /* Remove underline from the link */
+    font-weight: bold;
+    }
+    #homebtn {
+      background-color: black;
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="index2.css" rel="stylesheet">
+  <link href="list.css" rel="stylesheet">
+  <link href="chart.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Work Orders History</h1>
+
+  <hr>
+
+  <div class="text-center">
+    <button id="homebtn" type="button" class="btn btn-info"><a href="home.html">Home</a></button>
+    <button type="button" class="btn btn-info"><a href="newWork.html">Create Workorder</a></button>
+    <button type="button" class="btn btn-info"><a href="workorder.html">View Open Workorders</a></button>
+    </div>
+
+    <hr>
+
+    <h5><b>Closed Work Orders</b></h5>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="recent-container">
+        
+        <hr>
+
+        <div class="table-responsive">
+         <table id="report-table" class="table table-bordered">
+             <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Comments</th>
+                <th>Due Date</th>
+                <th>Employee Report</th>
+                <th>Employee Name</th>
+                <th>Date Completed</th>
+            </tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+
+
+  <hr><hr><hr>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="routes/viewreport.js"></script>
+</body>
+</html>

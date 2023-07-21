@@ -82,7 +82,7 @@
         <hr>
 
         <div class="table-responsive">
-         <table id="report-table" class="table table-bordered">
+         <table id="workOrders-table" class="table table-bordered">
              <tr>
               <th>#</th>
               <th>Title</th>
@@ -100,7 +100,7 @@
   <hr><hr><hr><hr>
 
   <h3>Close A Work Order</h3>
-    <form id="inspectionForm">
+    <form id="closeForm">
 
         <div class="form-group">
         <label for="name">Work Order Number:</label>
@@ -119,13 +119,13 @@
 
         <div class="form-group">
             <label for="report">Report:</label>
-            <textarea id="comments" name="report" rows="5" cols="30" class="form-control"></textarea>
+            <textarea type="text" id="comments" name="report" rows="5" cols="30" class="form-control"></textarea>
         </div>
 
         <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="routes/viewreport.js"></script>
+  <script src="routes/viewWorkOrder.js"></script>
 </body>
 </html>

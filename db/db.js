@@ -38,16 +38,33 @@ const userSchema = new mongoose.Schema({
 
 User = mongoose.model('User', userSchema);
 
-const inspectionReportSchema = new mongoose.Schema({
-  typeOfIns: String,
+const workOrderSchema = new mongoose.Schema({
+  title: String,
   name: String,
   date: Date,
   status: String,
-  report: String,
+  comments: String,
+  dueDate: Date
 });
 
 // Create the InspectionReport model
-InspectionReport = mongoose.model('InspectionReport', inspectionReportSchema);
+newWorkOrder = mongoose.model('newWorkOrder', workOrderSchema);
+
+
+const pastWorkOrderSchema = new mongoose.Schema({
+  title: String,
+  name: String,
+  date: Date,
+  status: String,
+  comments: String,
+  dueDate: Date,
+  employeeReport: String,
+  employeeName: String,
+  dateCompleted: Date
+});
+
+// Create the InspectionReport model
+pastWorkOrder = mongoose.model('pastWorkOrder', pastWorkOrderSchema);
 
 
 
@@ -71,7 +88,8 @@ InspectionReport = mongoose.model('InspectionReport', inspectionReportSchema);
 //exporting modules
 module.exports = {
     User,
-    InspectionReport,
+    newWorkOrder,
+    pastWorkOrder,
     // signinUser,
     createConnection,
     connection

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>View Open Work Orders</title>
+  <title>View Service Calls</title>
   <style>
     /* Add your custom styles here */
     hr {
@@ -52,33 +52,34 @@
         textarea {
             resize: vertical;
         }
-        .recent-container {
-            max-width: 2300px; /* Set the maximum width for the table container */
-            margin: 0 auto; /* Center the table container on the page */
-        }
 
   </style>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link href="index2.css" rel="stylesheet">
+  
   <link href="list.css" rel="stylesheet">
   <link href="chart.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Work Orders</h1>
+  <h1>Service Calls</h1>
   <hr>
   
   <div class="text-center">
     <button id="homebtn" type="button" class="btn btn-info"><a href="home.html">Home</a></button>
-    <button type="button" class="btn btn-info"><a href="newWork.html">Create workorder</a></button>
-    <button id="completedbtn" type="button" class="btn btn-info"><a href="viewhistory.html">View History</a></button>
-    </div>
+    <button id="homebtn" type="button" class="btn btn-info"  onclick="scrollToForm()">Log New</button>
+  </div>
+
+  <script>
+    function scrollToForm() {
+      const formElement = document.getElementById('newServiceCall-form');
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 
     <hr>
 
-    <h5><b>Open Work Orders</b></h5>
 
   <div class="w3-row-padding w3-margin-bottom">
     <div class="recent-container">
@@ -86,15 +87,13 @@
         <hr>
 
         <div class="table-responsive">
-         <table id="workOrders-table" class="table table-bordered">
+         <table id="scalls-table" class="table table-bordered">
              <tr>
-              <th>#</th>
-              <th>Title</th>
+              <th>Unit</th>
               <th>Name</th>
-              <th>Due Date</th>
-              <th>Status</th>
+              <th>Date</th>
+              <th>OT Approved</th>
               <th>Comments</th>
-              <th>Date Required</th>
             </tr>
         </table>
     </div>
@@ -103,12 +102,12 @@
 
   <hr><hr><hr><hr>
 
-  <h5><b>Close A Work Order</b></h5>
-    <form id="closeForm">
+  <h5><b>Log new service call</b></h5>
+    <form id="newServiceCall-form">
 
         <div class="form-group">
-        <label for="name">Work Order Number:</label>
-        <input type="text" id="woNumber" name="number" class="form-control">
+        <label for="name">Unit:</label>
+        <input type="text" id="unit" name="number" class="form-control">
         </div>
 
         <div class="form-group">
@@ -122,14 +121,24 @@
         </div>
 
         <div class="form-group">
+            <label for="ot">OT Approved?:</label>
+            <select id="ot" name="ot" class="form-control">
+                <option value=" "> </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="report">Report:</label>
-            <textarea type="text" id="comments" name="report" rows="5" cols="30" class="form-control"></textarea>
+            <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
         </div>
 
         <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="routes/viewWorkOrder.js"></script>
+  <script src="routes/serviceCalls.js"></script>
+
 </body>
 </html>

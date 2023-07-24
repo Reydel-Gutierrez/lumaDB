@@ -7,10 +7,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="index2.css" rel="stylesheet">
 <link href="list.css" rel="stylesheet">
 <link href="chart.css" rel="stylesheet">
-<link href="weather.scss" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
@@ -18,7 +16,21 @@
 
 
 <style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+html,h1,h2,h3,h4,h5 {
+
+font-family: "Raleway", sans-serif
+
+}
+
+ body {
+    background-color: #ffffff; /* Replace with your desired color */
+    font-family: "Raleway", sans-serif
+} 
+
+.w3-sidebar {
+    background-color: #5e1c1c; /* Replace with your desired color */
+    color: #fff; /* Optionally, you can also change the text color of the menu */
+  }
 
 hr {
       width: 100%;
@@ -26,19 +38,36 @@ hr {
       border: none;
       opacity: 0;
       background-color: #e5e5e500; /* Set the desired background color */
-      margin: 10px 0; /* Adjust the margin to control the space */
+      margin: 160px 0; /* Adjust the margin to control the space */
     }
 
     
     .recent-container {
-    max-width: 1400px; /* Set the maximum width for the table container */
+    max-width: 80%; /* Set the maximum width for the table container */
     margin: 0 auto; /* Center the table container on the page */
+
   }
  
+  
+  body {
+    transition: background-color 0.5s ease;
+    
+  }
+  .slide-button {
+   height: 50px;
+    
+    
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    
+  }
+  .slide-button.active {
+      transform: translateX(50%);
+    }
 
 </style>
 </head>
-<body class="w3-light-grey">
+<body>
 
 <!-- Top container --> 
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
@@ -47,7 +76,7 @@ hr {
 </div>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+<nav class="w3-sidebar w3-collapse  w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
       <!-- <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px"> -->
@@ -56,27 +85,27 @@ hr {
         <div id="user-info"><h1>Welcome</h1></div>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+      <a href="#" onclick="toggleBackground()" class="w3-bar-item w3-button"><i class="fa fa-moon-o"></i></a>
     </div>
   </div>
-  <hr>
+  
   <div class="w3-container">
     
   </div>
   <div class="w3-bar-block">
     <!-- <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a> -->
-    <a href="index2.html" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a href="index2.html" class="w3-bar-item w3-button w3-padding w3-black"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
     <a href="workorder.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Work Orders</a>
+    <a href="buildingUnits.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Units & Assets</a>
+    <a href="checklists.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Check lists & Scope of Work </a>
+    <a href="serviceCalls.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Service Calls</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Inspections</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Contracts</a>
-    <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Building Units & Assets</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Chillers Access Point</a>
-    <a href="usersList.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Users</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Vendors History</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Fire Alarm Log</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Fire System</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Water & Electrical Meters</a>
-    <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Service Calls</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Tasks List</a>
     <a href="newreport.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Employees List</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
@@ -95,18 +124,18 @@ hr {
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h1><b><i class="fa fa-dashboard"></i>DCRE Dashboard</b></h1>
+    
   </header>
 
- 
+  
 
-<hr>
-<hr>
+
 <hr>
 
 
 
 <div class="container py-5">
-  <div class="card" style="background-color: rgba(255, 255, 255, 0.8);">
+  <div class="card" style="background-color: rgba(250, 247, 247, 0.05); border-radius: 20px;">
     <div class="card-body">
 
       <div class="d-flex justify-content-between">
@@ -131,6 +160,23 @@ hr {
   </div>
 </div>
 
+
+<script>
+    let isToggled = false;
+
+function toggleBackground() {
+  const body = document.body;
+  isToggled = !isToggled;
+  if (isToggled) {
+    body.style.backgroundColor = "#F5DEB3"; // Change to your desired color
+  } else {
+    body.style.backgroundColor = "#fff"; // Change to your default background color
+  }
+
+  const button = document.querySelector(".slide-button");
+  button.classList.toggle("active");
+}
+</script>
 
 <p id="Temp"></p>
 <p id="Feelslike"></p>
@@ -187,7 +233,7 @@ hr {
     window.addEventListener('load', getWeatherData);
   </script>
 
-<hr><hr>
+<hr>
 
 <!-- Performance Chart Implementation -->
 
@@ -261,148 +307,38 @@ hr {
   const myChart = new Chart(ctx, config);
 </script>
 
-<hr><hr><hr><hr><hr><hr><hr>
+<hr>
 
 
 <div class="w3-row-padding w3-margin-bottom">
     <div class="recent-container">
+      <div class="table-responsive">
+      <hr>
       <h5><b>Recent WorkOrders</b></h5>
-      <hr><hr>
-      <table class="w3-table-all" class="table table-bordered">
+      
+      <table id="homeWorkOrders-table" class="w3-table-all" class="table table-bordered">
         <tr>
-          <th>ID</th>
-          <th>Type of Inspection</th>
+          <th>#</th>
+          <th>Title</th>
           <th>Name</th>
           <th>Date</th>
           <th>Status</th>
-          <th>Report</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Daily Inspection</td>
-          <td>Reydel Gutierrez</td>
-          <td>2023-04-01</td>
-          <td>Needs Work</td>
-          <td>Pavers need repairs</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Daily Inspection</td>
-          <td>Reydel Gutierrez</td>
-          <td>2023-04-02</td>
-          <td>Good</td>
-          <td>No issues found</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Monthly Inspection</td>
-          <td>Reydel Gutierrez</td>
-          <td>2023-04-03</td>
-          <td>Good</td>
-          <td>No issues found</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Monthly Inspection</td>
-          <td>Reydel Gutierrez</td>
-          <td>2023-04-03</td>
-          <td>Good</td>
-          <td>Checked all the repairs done yesterday and everything was ok, No issues or leaks found.</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Monthly Inspection</td>
-          <td>Reydel Gutierrez</td>
-          <td>2023-04-03</td>
-          <td>Good</td>
-          <td>No issues found</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Monthly Inspection</td>
-          <td>Reydel Gutierrez</td>
-          <td>2023-04-03</td>
-          <td>Good</td>
-          <td>No issues found</td>  
-        </tr>
+          <th>Comments</th>
+          <th>Due Date</th>
+          <th class="userField">Employee Report</th>
+          <th class="userField">Employee Name</th>
+          <th class="userField">Date Completed</th>
+      </tr>
       </table>
     </div>
-  </div>
-  <hr>
-  <hr>
-  <hr>
+    <hr>
+    </div>
+</div>
+  
+ <hr>
   
 
-  <div class="list-container">
-    <h5><b>CheckLists & Scoop of Work</b></h5>
-    <hr><hr>
-    <div class="inspections">
-      <div class="inspection-list">
-        <h5>Daily Inspections</h5>
-        <ul class="daily">
-          <li>Response to any maintenance requests or emergencies.</li>
-          <li>Walkthrough throughout the building to identify any issues or concerns.</li>
-          <li>Lighting and paver check throughout the property.</li>
-          <li>Physically inspect the chillers plant.</li>
-          <li>Maintain accurate records of maintenance activities, including work orders, inspections, and repairs.</li>
-          <li>Daily Blowing the outsides of the property, including the loading dock. Ensuring a clean and well-maintained appearance.</li>
-          <li>Check with current contractors and vendors to ensure that tasks are progressing according to schedule and meeting expectations.</li>
-          <li>Monitor Fire Panel at least once a day to look for new troubles or supervisory to identify and resolve issues quickly.</li>
-          <li>Oversee irrigation systems on a daily basis.</li>
-          <li>Check Building Automation System for Alarms or Alerts.</li>
-          <li>Respond to retail issues related to the building, such as leaks and electrical problems.</li>
-        </ul>
-      </div>
-      <div class="inspection-list">
-        <h5>Weekly Inspections</h5>
-        <ul class="weekly">
-          <li>Inspect and maintain generators rooms.</li>
-          <li>Inspect and maintain elevators.</li>
-          <li>Inspect and maintain escalators.</li>
-          <li>Inspect and address electrical circuit problems.</li>
-          <li>Inspect landscape to report to vendors any issues.</li>
-          <li>Check and adjust automation in Lighting Systems and Irrigation Sprinklers.</li>
-          <li>Inspect HVAC equipment and systems.</li>
-          <li>Physically inspect the chillers for new alarms, troubles, or unusual behaviors.</li>
-          <li>Flush water through p-traps to prevent the buildup of insects and unpleasant smells.</li>
-          <li>Inspect and maintain security systems, e.g., doors and locks.</li>
-          <li>Inspect underground tanks.</li>
-          <li>Generator fuel current capacity check.</li>
-        </ul>
-      </div>
-      <div class="inspection-list">
-        <h5>Monthly Inspections</h5>
-        <ul class="monthly">
-          <li>Adjust lighting as needed to implement energy-saving measures.</li>
-          <li>Test and maintain emergency lighting and exit signs.</li>
-          <li>Conduct water tests for underground tanks.</li>
-          <li>Test and maintain backup batteries for emergency systems.</li>
-          <li>Test and inspect building management systems (BMS).</li>
-          <li>Review the status of pest control inspections and treatments with vendors.</li>
-          <li>Generator testing and maintenance.</li>
-          <li>Walking underrail area to identify issues.</li>
-          <li>Performing water meter readings for all retails and residential spaces (23 meters).</li>
-          <li>Performing electrical meter readings for all retails and residential spaces.</li>
-          <li>Reprogram irrigation system to ensure efficient water usage and proper irrigation of the landscape.</li>
-        </ul>
-      </div>
-      <div class="inspection-list">
-        <h5>Quarterly Inspections</h5>
-        <ul class="quarterly">
-          <li>Roof Inspection for signs of damage or wear and tear, e.g., leaks and cracks.</li>
-          <li>Electrical System Inspection: inspect every electrical room in the building for signs of wear and tear.</li>
-          <li>HVAC System inspection for damage or wear and tear. Including all components: Ductwork, filters, and thermostats.</li>
-          <li>Check and schedule building inspections such as 1-year fire system inspection.</li>
-          <li>Emergency Preparedness Inspection. Evacuation plan and building codes.</li>
-          <li>Chiller inspection with vendor (Trane).</li>
-          <li>Fire sprinkler inspection with vendor (City Fire).</li>
-          <li>Chiller plant water treatment with vendor (Advance Water).</li>
-          <li>Visual inspection of elevator and escalator components.</li>
-          <li>Check for any annual inspections to coordinate with vendors.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  
 
 <hr>
 <hr>
@@ -455,7 +391,10 @@ function w3_close() {
 </script>
 <script src="chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="routes/homeWorkOrders.js"></script> </script>
+<script src="theme.css"></script>
 
 </body>
 </html>

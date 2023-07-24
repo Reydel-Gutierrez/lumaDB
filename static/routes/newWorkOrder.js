@@ -4,11 +4,25 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const title = document.getElementById("title").value;
   const name = document.getElementById("name").value;
-  const date = document.getElementById("date").value;
+  const rawDate = document.getElementById("date").value;
   const status = document.getElementById("status").value;
   const comments = document.getElementById("comments").value;
-  const dueDate = document.getElementById('dueDate').value;
+  const rawDueDate = document.getElementById("dueDate").value;
+  
+  function formatDate(rawDate) {
+    return rawDate.substr(0, 10);
+  }
 
+
+  // Format the date and dueDate before storing in the data object
+  const date = formatDate(rawDate);
+  const dueDate = formatDate(rawDueDate);
+  
+  console.log(date, dueDate);
+  // Function to format the date to the desired format (e.g., "YYYY-MM-DD")
+  
+  
+  // Create the data object
   const data = { title, name, date, status, comments, dueDate };
   const options = {
     method: 'POST',

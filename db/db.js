@@ -54,7 +54,7 @@ newWorkOrder = mongoose.model('newWorkOrder', workOrderSchema);
 const pastWorkOrderSchema = new mongoose.Schema({
   title: String,
   name: String,
-  date: Date,
+  date: String,
   status: String,
   comments: String,
   dueDate: Date,
@@ -67,6 +67,15 @@ const pastWorkOrderSchema = new mongoose.Schema({
 pastWorkOrder = mongoose.model('pastWorkOrder', pastWorkOrderSchema);
 
 
+const serviceCallSchema = new mongoose.Schema({
+  unit: String,
+  name: String,
+  date: Date,
+  ot: String,
+  report: String,
+});
+
+ServiceCall = mongoose.model('ServiceCall', serviceCallSchema);
 
 //db route for user sign in
 
@@ -90,6 +99,7 @@ module.exports = {
     User,
     newWorkOrder,
     pastWorkOrder,
+    ServiceCall,
     // signinUser,
     createConnection,
     connection

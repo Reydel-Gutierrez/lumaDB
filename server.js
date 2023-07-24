@@ -13,7 +13,7 @@ app.use('/static', express.static(path.join(__dirname, 'static')))
 app.use(express.static('static'));
 app.use(cors());
 
-const {createConnection} = require('./db/db.js');
+const {createConnection, newWorkOrder} = require('./db/db.js');
 
 createConnection()
     .then(() => {
@@ -59,7 +59,7 @@ app.post('/signin', async (req, res) => {
     }
   });
 
-  const {newWorkOrder} = require('./db/db.js');
+  // const {newWorkOrder} = require('./db/db.js');
 
   app.post('/newWorkOrder', async (req, res) => {
     try {
@@ -92,7 +92,7 @@ app.post('/signin', async (req, res) => {
   app.get('/viewWorkOrders', async (req, res) => {
     try {
       // Fetch all inspection reports from the database
-      const workOrders = await newWorkOrder.find();
+      const workOrders = await newWorkOrder.find().sort({ date: -1 });
   
       // Return the reports as JSON response
       res.status(200).json({ workOrders });
@@ -116,7 +116,7 @@ app.post('/signin', async (req, res) => {
           title: workOrder.title,
           name: workOrder.name,
           date: workOrder.date,
-          status: workOrder.status,
+          status: "Closed",
           comments: workOrder.comments,
           dueDate: workOrder.dueDate,
           employeeReport: userReport, // Directly assign userReport to employeeReport
@@ -142,10 +142,67 @@ app.post('/signin', async (req, res) => {
   app.get('/viewPastWorkOrders', async (req, res) => {
     try {
       // Fetch all inspection reports from the database
-      const pastWorkOrders = await pastWorkOrder.find();
+      const pastWorkOrders = await pastWorkOrder.find().sort({ date: -1 });
   
       // Return the reports as JSON response
       res.status(200).json({ pastWorkOrders });
+    } catch (error) {
+      console.error('Error fetching inspection reports:', error);
+      // Return an error response
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  app.get('/home', async (req, res) => {
+    try {
+      // Fetch all inspection reports from the database
+      const homePastWorkOrders = await pastWorkOrder.find().sort({ date: -1 }).limit(5);
+      const WorkOrders = await newWorkOrder.find().sort({ date: -1 }).limit(5);
+  
+      // Return the reports as JSON response
+      const data = {
+        WorkOrders: WorkOrders,
+        homePastWorkOrders: homePastWorkOrders,
+      };
+  
+      res.status(200).json(data);
+        
+    } catch (error) {
+      console.error('Error fetching inspection reports:', error);
+      // Return an error response
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+
+  const {ServiceCall} = require('./db/db.js');
+
+  app.post('/newServiceCall', async (req, res) => {
+    try {
+      const { unit, name, date, ot, report } = req.body;
+  
+      // Save the inspection report to the database
+      const newServiceCall = new ServiceCall({  unit, name, date, ot, report });
+      await newServiceCall.save();
+  
+      // Return a success response
+      res.status(200).json({ message: 'Service Call submitted successfully' });
+    } catch (error) {
+      console.error('Error submitting inspection report:', error);
+      // Return an error response
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  app.get('/serviceCalls', async (req, res) => {
+    try {
+      // Fetch all inspection reports from the database
+      const serviceCalls = await ServiceCall.find().sort({ date: -1 });
+      
+      // Return the reports as JSON response
+      console.log('Service Calls:', serviceCalls); // Add this line for debugging
+      res.status(200).json(serviceCalls);
+        
     } catch (error) {
       console.error('Error fetching inspection reports:', error);
       // Return an error response

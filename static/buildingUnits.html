@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Type of Units Dropdown</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<hr><hr>
+
+<div class="container d-flex justify-content-center">
+    <div class="">
+        <h2 class="text-center">Type of Units:</h2>
+        <div class="d-flex justify-content-center">
+            <select id="unitType" class="form-control w-100">
+                <option value="option1"></option>
+                <option value="option1">HVAC</option>
+                <option value="option2">Elevators</option>
+                <option value="option3">Escalators</option>
+                <option value="option4">Fire System</option>
+                <option value="option5">Option 5</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<script>
+    const dropdown = document.getElementById('unitType');
+
+    dropdown.addEventListener('change', (event) => {
+        const selectedOption = event.target.value;
+        console.log('Selected Option:', selectedOption);
+        // You can perform any desired actions based on the selected option here.
+    });
+</script>
+
+</body>
+</html>

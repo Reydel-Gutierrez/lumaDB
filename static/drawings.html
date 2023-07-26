@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  margin: 5px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.images img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+hr {
+      width: 100%;
+      height: 1px; /* Adjust the height as needed */
+      border: none;
+      opacity: 0;
+      background-color: #e5e5e500; /* Set the desired background color */
+      margin: 20px 0; /* Adjust the margin to control the space */
+    }
+
+    .header {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 1200px; /* Optional: Set the maximum width of the header */
+      padding: 20px;
+    }
+    .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  cursor: pointer;
+}
+</style>
+
+<!-- Add Bootstrap CSS link -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<!-- Header -->
+<div class="header" id="myHeader">
+  <h1>Building Drawings</h1>
+  <div>
+  <a href="https://login.procore.com/?cookies_enabled=true">ProCore Link</a>
+  </div>
+  <div>
+  <a><b>Email: </b>sanym.martinez@flaglerdev.com</a>
+  <a><b>Password: </b>Rolando1@</a>
+  </div>
+  <hr>
+</div>
+
+  <div class="gallery">
+    <div class="buttons">
+      <button class="filter-btn active" data-block="all">All</button>
+      <button class="filter-btn" data-block="A">A-BLOCK</button>
+      <button class="filter-btn" data-block="B">B-BLOCK</button>
+      <button class="filter-btn" data-block="C">C-BLOCK</button>
+      <button class="filter-btn" data-block="D">D-BLOCK</button>
+      <button class="filter-btn" data-block="E">E-BLOCK</button>
+    </div>
+    <div class="images">
+      <!-- Add your images here -->
+      <img src="img/draw/BlockA.png" data-block="A" alt="A-BLOCK">
+      <img src="img/draw/BlockA1.png" data-block="A" alt="A-BLOCK">
+      <img src="img/draw/BlockA2.png" data-block="A" alt="A-BLOCK">
+      <img src="img/draw/BlockA3.png" data-block="A" alt="A-BLOCK">
+      <img src="img/draw/BlockA4.png" data-block="A" alt="A-BLOCK">
+      <img src="img/draw/BlockA5.png" data-block="A" alt="A-BLOCK">
+      <img src="img/draw/BlockB.png" data-block="B" alt="B-BLOCK">
+      <img src="img/draw/BlockB1.png" data-block="B" alt="B-BLOCK">
+      <img src="img/draw/BlockB2.png" data-block="B" alt="B-BLOCK">
+      <img src="img/draw/BlockB3.png" data-block="B" alt="B-BLOCK">
+      <img src="img/draw/BlockB4.png" data-block="B" alt="B-BLOCK">
+      <img src="img/draw/BlockB5.png" data-block="B" alt="B-BLOCK">
+      <img src="img/draw/BlockC.png" data-block="C" alt="C-BLOCK">
+      <img src="img/draw/BlockC1.png" data-block="C" alt="C-BLOCK">
+      <img src="img/draw/BlockC2.png" data-block="C" alt="C-BLOCK">
+      <img src="img/draw/BlockC3.png" data-block="C" alt="C-BLOCK">
+      <img src="img/draw/BlockC4.png" data-block="C" alt="C-BLOCK">
+      <img src="img/draw/BlockC5.png" data-block="C" alt="C-BLOCK">
+      <img src="img/draw/BlockD.png" data-block="D" alt="D-BLOCK">
+      <img src="img/draw/BlockD1.png" data-block="D" alt="D-BLOCK">
+      <img src="img/draw/BlockD2.png" data-block="D" alt="D-BLOCK">
+      <img src="img/draw/BlockD3.png" data-block="D" alt="D-BLOCK">
+
+
+      <!-- Add more images for each block -->
+    </div>
+  </div>
+
+  <!-- Add Bootstrap JS links -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const images = document.querySelectorAll('.images img');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    
+        const block = button.getAttribute('data-block');
+    
+        images.forEach(image => {
+          image.style.display = 'none';
+          if (block === 'all' || image.getAttribute('data-block') === block) {
+            image.style.display = 'block';
+          }
+        });
+      });
+    });
+    
+    // Add click event listener to each image
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        // Create a lightbox overlay
+        const overlay = document.createElement('div');
+        overlay.classList.add('overlay');
+    
+        // Create the image element inside the overlay
+        const modalImage = document.createElement('img');
+        modalImage.src = image.src;
+        overlay.appendChild(modalImage);
+    
+        // Add the overlay to the document
+        document.body.appendChild(overlay);
+    
+        // Remove the overlay when clicked
+        overlay.addEventListener('click', () => {
+          document.body.removeChild(overlay);
+        });
+      });
+    });
+    </script>
+
+</body>
+</html>

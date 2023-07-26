@@ -6,71 +6,129 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Signin Template · Bootstrap v5.3</title>
 
-
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+      .gradient-custom-2 {
+/* fallback for old browsers */
+background: #fccb90;
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, #303030, #303030, #05152e, #05152e);
 
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right,#303030, #303030, #05152e, #05152e);
+}
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
+@media (min-width: 768px) {
+.gradient-form {
+height: 100vh !important;
+}
+}
+@media (min-width: 769px) {
+.gradient-custom-2 {
+border-top-right-radius: .3rem;
+border-bottom-right-radius: .3rem;
+}
+}
     </style>
+
+    
+    <!-- Custom styles for this template -->
+    <!-- <link href="sign-in.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    <!-- class="text-center" -->
+    
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -50px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
 
     
     <!-- Custom styles for this template -->
     <link href="sign-in.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body>
+
+     <!-- Jumbotron -->
+  <section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <img src="img/logo2.png"
+                      style="width: 250px; height: 250px;" alt="logo">
+                    <h4 class="mt-2 mb-3 pb-2"></h4>
+                  </div>
+  
+                  <form>
+                    <p>Create an Account!</p>
+  
+                    <div class="form-outline mb-4">
+                      <input type="email" id="name" class="form-control"
+                        placeholder="" />
+                      <label class="form-label" for="form2Example11">Name</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form2Example22" class="form-control" />
+                      <label class="form-label" for="form2Example22">Email</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form2Example22" class="form-control" />
+                      <label class="form-label" for="form2Example22">Password</label>
+                    </div>
+  
+                    
+  
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Have an account? <hr></p>
+                      <button type="button" class="btn btn-outline-danger" onclick="redirectToSignup()">Sign In</button>
+                    </div>
+  
+                  </form>
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">LUMAFB</h4>
+                  <p class="small mb-0">Luma Facility Database is a cutting-edge platform designed to revolutionize facility 
+                    management for modern businesses and organizations. With a focus on brightness and clarity, 
+                    Luma empowers facility managers to achieve unparalleled levels of efficiency and effectiveness.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
     
+  <script>
+    function redirectToSignup() {
+      window.location.href = "signin.html";
+    }
+  </script>
 
-
-<form id="user-form">
+<!-- <form id="user-form">
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" required>
   <label for="email">Email:</label>
@@ -78,34 +136,8 @@
   <label for="password">Password:</label>
   <input type="password" id="password" name="password" required>
   <button type="submit">Submit</button>
-</form>
-
-<!-- <main class="form-signin w-100 m-auto">
-  <form id="user-form">
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-
-    <div class="form-floating">
-      <input type="text" class="form-control" id="name" placeholder="name">
-      <label for="name">Name</label>
-    </div>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="email" placeholder="email">
-      <label for="email">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="password" placeholder="password">
-      <label for="password">Password</label>
-    </div>
-
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
-  </form>
-</main> -->
+</form> -->
+>
 
     <script src="routes/frontend.js"></script>
   </body>

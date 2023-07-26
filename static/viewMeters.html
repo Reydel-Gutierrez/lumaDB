@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Viewer</title>
+  <!-- Add Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container py-5">
+  <h2>Type of Meter:</h2>
+  <select id="meterType" class="form-control mb-3">
+    <option value=""></option>
+    <option value="electrical">Electric Meter</option>
+    <option value="water">Water Meter</option>
+    
+  </select>
+
+  <!-- Use the embed tag to display the PDF -->
+  <embed id="pdfViewer" src="" type="application/pdf" width="100%" height="600px" />
+
+  <script>
+    // Get the select element
+    const meterTypeSelect = document.getElementById("meterType");
+    // Get the embed element
+    const pdfViewer = document.getElementById("pdfViewer");
+
+    // Listen for changes in the select element
+    meterTypeSelect.addEventListener("change", function () {
+      // Get the selected value
+      const selectedValue = meterTypeSelect.value;
+      // Update the src attribute of the embed element to display the selected PDF
+      pdfViewer.setAttribute("src", `meters/${selectedValue}.pdf`);
+    });
+  </script>
+</body>
+</html>

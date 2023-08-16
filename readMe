@@ -6,6 +6,7 @@ routes are configure to external ip address of VM which is http://34.16.164.53/
 
 things I need to immplement
 
+-create better menus with filtering options for table
 -make work order performance chart to work
 -add chat inside the app between employees or notes in the main page
 -Create calendar for PTO, so that people know which days are taken and which are available

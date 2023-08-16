@@ -1,0 +1,3 @@
+This branch contains production(currenly version being used),
+The purpose of this branch is always have a reference to the code running on VM
+This server uses localhost 127.0.0.1 at port 3000, original sever in the cloud uses: hostname = 0.0.0.0, port = 80;

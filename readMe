@@ -1,3 +1,11 @@
 This branch contains production(currenly version being used),
 The purpose of this branch is always have a reference to the code running on VM
 This server uses localhost 127.0.0.1 at port 3000, original sever in the cloud uses: hostname = 0.0.0.0, port = 80;
+routes are configure to external ip address of VM which is http://34.16.164.53/
+
+
+things I need to immplement
+
+-make work order performance chart to work
+-add chat inside the app between employees or notes in the main page
+-Create calendar for PTO, so that people know which days are taken and which are available

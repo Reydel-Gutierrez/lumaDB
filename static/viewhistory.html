@@ -58,30 +58,88 @@
 
     <h5><b>Closed Work Orders</b></h5>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="recent-container">
-        
-        <hr>
-
-        <div class="table-responsive">
-         <table id="pastWorkOrders-table" class="table table-bordered">
-             <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Comments</th>
-                <th>Due Date</th>
-                <th class="userField">Employee Report</th>
-                <th class="userField">Employee Name</th>
-                <th class="userField">Date Completed</th>
-            </tr>
-        </table>
+    <div class="w3-row-padding w3-margin-bottom">
+      <div class="recent-container">
+          
+          <hr>
+  
+          <select id="filterEmployee">
+            <option value="">All Employees</option>
+            <option value="Employee 1">Employee 1</option>
+            <option value="Employee 2">Employee 2</option>
+            <!-- Add more employee options as needed -->
+          </select>
+  
+          <div class="table-responsive">
+            <table id="pastWorkOrders-table" class="table table-bordered">
+               <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Comments</th>
+                  <th>Due Date</th>
+                  <th class="userField">Employee Report</th>
+                  <th class="userField employeeName">Employee Name</th> <!-- Note the added class "employeeName" here -->
+                  <th class="userField">Date Completed</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Order 1</td>
+                <td>John</td>
+                <td>2023-08-15</td>
+                <td>Open</td>
+                <td>No comments</td>
+                <td>2023-08-20</td>
+                <td>Report 1</td>
+                <td class="userField employeeName">Employee 1</td> <!-- Note the added class "employeeName" here -->
+                <td>2023-08-18</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Order 2</td>
+                <td>Jane</td>
+                <td>2023-08-14</td>
+                <td>Closed</td>
+                <td>Some comments</td>
+                <td>2023-08-22</td>
+                <td>Report 2</td>
+                <td class="userField employeeName">Employee 2</td> <!-- Note the added class "employeeName" here -->
+                <td>2023-08-19</td>
+              </tr>
+          </table>
+      </div>
     </div>
   </div>
-</div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const filterSelect = document.getElementById("filterEmployee");
+    const workOrdersTable = document.getElementById("pastWorkOrders-table");
+    const tableRows = workOrdersTable.querySelectorAll("tr");
+
+    filterSelect.addEventListener("change", function() {
+      const selectedEmployee = filterSelect.value;
+      for (let i = 1; i < tableRows.length; i++) {
+        const row = tableRows[i];
+        const employeeCell = row.querySelector(".userField.employeeName");
+        
+        if (!employeeCell) {
+          continue;
+        }
+        
+        const employeeName = employeeCell.textContent.trim();
+        
+        if (selectedEmployee === "" || employeeName === selectedEmployee) {
+          row.style.display = "table-row";
+        } else {
+          row.style.display = "none";
+        }
+      }
+    });
+  });
+</script>
 
 
   <hr><hr><hr>

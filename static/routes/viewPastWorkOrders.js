@@ -4,19 +4,27 @@ axios.get('http://localhost:3000/viewPastWorkOrders')
     const workOrders = response.data.pastWorkOrders;
     const table = document.getElementById('pastWorkOrders-table');
 
+    workOrders.sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted));
+
     workOrders.forEach(workOrder => {
       const row = table.insertRow();
+
+       // Format dateCompleted as YYYY-MM-DD
+       const formattedDateComplete = new Date(workOrder.dateCompleted).toISOString().split('T')[0];
+       const formattedDueDate = new Date(workOrder.dueDate).toISOString().split('T')[0];
+       const formattedDate = new Date(workOrder.date).toISOString().split('T')[0];
+
       row.innerHTML = `
         <td>${workOrder._id}</td>
         <td>${workOrder.title}</td>
         <td>${workOrder.name}</td>
-        <td>${workOrder.date}</td>
+        <td>${formattedDate}</td>
         <td>${workOrder.status}</td>
         <td>${workOrder.comments}</td>
-        <td>${workOrder.dueDate}</td>
+        <td>${formattedDueDate}</td>
         <td>${workOrder.employeeReport}</td>
         <td>${workOrder.employeeName}</td>
-        <td>${workOrder.dateCompleted}</td>
+        <td>${formattedDateComplete}</td>
       `;
     });
   })

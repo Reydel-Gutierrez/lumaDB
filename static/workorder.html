@@ -1,84 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>View Open Work Orders</title>
-  <style>
-    /* Add your custom styles here */
-    hr {
-      width: 100%;
-      height: 1px; /* Adjust the height as needed */
-      border: none;
-      opacity: 0;
-      background-color: #e5e5e500; /* Set the desired background color */
-      margin: 10px 0; /* Adjust the margin to control the space */
-    }
-    .btn a {
-    color: inherit; /* Inherit text color from the parent button (white in this case) */
-    text-decoration: none; /* Remove underline from the link */
-    font-weight: bold;
-    
-  }
-    #completedbtn {
-    color: rgb(255, 255, 255); /* Inherit text color from the parent button (white in this case) */
-    text-decoration: none; /* Remove underline from the link */
-    font-weight: bold;
-    }
-    #homebtn {
-      background-color: black;
-    }
 
-    body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        h3 {
-            text-align: center;
-        }
-
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        label, select, textarea, input[type="submit"] {
-            margin-bottom: 10px;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-        .recent-container {
-            max-width: 2300px; /* Set the maximum width for the table container */
-            margin: 0 auto; /* Center the table container on the page */
-        }
-
-  </style>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="index2.css" rel="stylesheet">
-  <link href="list.css" rel="stylesheet">
-  <link href="chart.css" rel="stylesheet">
-</head>
-<body>
-  <h1>Work Orders</h1>
-  <hr>
   
-  <div class="text-center">
-    <button id="homebtn" type="button" class="btn btn-info"><a href="home.html">Home</a></button>
-    <button type="button" class="btn btn-info"><a href="newWork.html">Create workorder</a></button>
-    <button id="completedbtn" type="button" class="btn btn-info"><a href="viewhistory.html">View History</a></button>
+  <link href="chart.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+  /* Add your custom styles here */
+  hr {
+    width: 100%;
+    height: 1px; /* Adjust the height as needed */
+    border: none;
+    opacity: 0;
+    background-color: #e5e5e500; /* Set the desired background color */
+    margin: 10px 0; /* Adjust the margin to control the space */
+  }
+  
+  .btn a {
+  color: inherit; /* Inherit text color from the parent button (white in this case) */
+  text-decoration: none; /* Remove underline from the link */
+  font-weight: bold; 
+  
+}
+  #completedbtn {
+  color: rgb(255, 255, 255); /* Inherit text color from the parent button (white in this case) */
+  text-decoration: none; /* Remove underline from the link */
+  font-weight: bold;
+  }
+  #homebtn {
+    background-color: black;
+  }
+
+  body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      h3 {
+          text-align: center;
+      }
+
+      form {
+          max-width: 500px;
+          margin: 0 auto;
+      }
+
+      label, select, textarea, input[type="submit"] {
+          margin-bottom: 10px;
+      }
+
+      textarea {
+          resize: vertical;
+      }
+      .recent-container {
+          max-width: 2300px; /* Set the maximum width for the table container */
+          margin: 0 auto; /* Center the table container on the page */
+      }
+
+
+
+  #workOrders-table th:nth-child(1),
+  #workOrders-table th:nth-child(2),
+  #workOrders-table th:nth-child(3),
+  #workOrders-table th:nth-child(4),
+  #workOrders-table th:nth-child(5),
+  #workOrders-table th:nth-child(6),
+  #workOrders-table th:nth-child(7) {
+    background-color: rgb(194, 194, 194);
+  }
+
+  .custom-navbar {
+      background-color: #022944; /* Change this to your desired background color */
+      font-weight: bold;
+      
+    }
+
+    /* Adjust the color of the navigation links */
+    .custom-navbar .navbar-nav .nav-link {
+      color: #fff; /* Change this to your desired text color */
+    }
+
+    /* Adjust the color of the active navigation link */
+    .custom-navbar .navbar-nav .nav-item.active .nav-link {
+      color: #9e6d1e; /* Change this to your desired active link color */
+    }
+
+
+</style>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar"> <!-- Add the "custom-navbar" class -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">HOME</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="workorder.html">WorkOrders <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="newWork.html">Create WorkOrder</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#form-group">Close WorkOrder</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="viewhistory.html">History</a>
+        </li>
+      </ul>
     </div>
+  </nav>
 
     <hr>
-
-    <h5><b>Open Work Orders</b></h5>
+    <h5><b>Work Orders</b></h5>
+    
 
   <div class="w3-row-padding w3-margin-bottom">
     <div class="recent-container">
@@ -135,6 +184,8 @@
     </form>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-7P5P8P9F8b7h1Hn3zO29mN7VuuE3Vl+vx1BD4V8H+Ih0yXPW1Th8Uqc4gN5fN/h+" crossorigin="anonymous"></script>
   <script src="routes/viewWorkOrder.js"></script>
+ 
 </body>
 </html>

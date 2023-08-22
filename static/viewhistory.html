@@ -2,57 +2,90 @@
 <html>
 <head>
   <title>Work Orders History</title>
-  <style>
-    /* Add your custom styles here */
-    hr {
-      width: 100%;
-      height: 1px; /* Adjust the height as needed */
-      border: none;
-      opacity: 0;
-      background-color: #e5e5e500; /* Set the desired background color */
-      margin: 10px 0; /* Adjust the margin to control the space */
-    }
-    .btn a {
-    color: inherit; /* Inherit text color from the parent button (white in this case) */
-    text-decoration: none; /* Remove underline from the link */
-    font-weight: bold;
-    
-  }
-    #completedbtn {
-    color: rgb(255, 255, 255); /* Inherit text color from the parent button (white in this case) */
-    text-decoration: none; /* Remove underline from the link */
-    font-weight: bold;
-    }
-    #homebtn {
-      background-color: black;
-    }
-    .userField {
-      color: rgb(205, 79, 20);
-    }
-    .recent-container {
-            max-width: 2300px; /* Set the maximum width for the table container */
-            margin: 0 auto; /* Center the table container on the page */
-    }
 
-  </style>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="index2.css" rel="stylesheet">
-  <link href="list.css" rel="stylesheet">
   <link href="chart.css" rel="stylesheet">
 </head>
+<style>
+  /* Add your custom styles here */
+  hr {
+    width: 100%;
+    height: 1px; /* Adjust the height as needed */
+    border: none;
+    opacity: 0;
+    background-color: #e5e5e500; /* Set the desired background color */
+    margin: 10px 0; /* Adjust the margin to control the space */
+  }
+
+  .userField {
+    color: rgb(205, 79, 20);
+  }
+  .recent-container {
+          max-width: 2300px; /* Set the maximum width for the table container */
+          margin: 0 auto; /* Center the table container on the page */
+  }
+
+  #pastWorkOrders-table th:nth-child(1),
+  #pastWorkOrders-table th:nth-child(2),
+  #pastWorkOrders-table th:nth-child(3),
+  #pastWorkOrders-table th:nth-child(4),
+  #pastWorkOrders-table th:nth-child(5),
+  #pastWorkOrders-table th:nth-child(6),
+  #pastWorkOrders-table th:nth-child(7) {
+    background-color: rgb(194, 194, 194);
+  }
+
+  /* Black background for the last three headers */
+  #pastWorkOrders-table th:nth-child(8),
+  #pastWorkOrders-table th:nth-child(9),
+  #pastWorkOrders-table th:nth-child(10) {
+    background-color: rgb(36, 36, 36);
+  }
+
+  .custom-navbar {
+    background-color: #022944; /* Change this to your desired background color */
+    font-weight: bold;
+    gap: 50px;
+  }
+
+  /* Adjust the color of the navigation links */
+  .custom-navbar .navbar-nav .nav-link {
+    color: #fff; /* Change this to your desired text color */
+  }
+
+  /* Adjust the color of the active navigation link */
+  .custom-navbar .navbar-nav .nav-item.active .nav-link {
+    color: #9e6d1e; /* Change this to your desired active link color */
+  }
+
+</style>
 <body>
-  <h1>Work Orders History</h1>
 
-  <hr>
-
-  <div class="text-center">
-    <button id="homebtn" type="button" class="btn btn-info"><a href="home.html">Home</a></button>
-    <button type="button" class="btn btn-info"><a href="newWork.html">Create Workorder</a></button>
-    <button type="button" class="btn btn-info"><a href="workorder.html">View Open Workorders</a></button>
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar"> <!-- Add the "custom-navbar" class -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="workorder.html">WorkOrders </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="newWork.html">Create WorkOrder</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="viewhistory.html">History<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
     </div>
+  </nav>
 
     <hr>
 

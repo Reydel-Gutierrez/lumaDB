@@ -96,11 +96,16 @@
     .custom-navbar .navbar-nav .nav-item.active .nav-link {
       color: #9e6d1e; /* Change this to your desired active link color */
     }
-
+    
+    .custom-navbar .navbar-toggler-icon {
+      opacity: 0.7;
+    background-color: #ffffff; /* Replace with your desired color */
+    /* You can also add additional styling properties here */
+    }
 
 </style>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light custom-navbar"> <!-- Add the "custom-navbar" class -->
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -123,7 +128,7 @@
         </li>
       </ul>
     </div>
-  </nav>
+</nav>
 
     <hr>
     <h5><b>Work Orders</b></h5>
@@ -183,9 +188,12 @@
         <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-7P5P8P9F8b7h1Hn3zO29mN7VuuE3Vl+vx1BD4V8H+Ih0yXPW1Th8Uqc4gN5fN/h+" crossorigin="anonymous"></script>
   <script src="routes/viewWorkOrder.js"></script>
+ 
  
 </body>
 </html>

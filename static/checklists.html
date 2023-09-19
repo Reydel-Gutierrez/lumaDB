@@ -6,16 +6,110 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <style>
     .list-container {
         padding-left: 10%;
     }
+
+    hr {
+      width: 100%;
+      height: 1px; /* Adjust the height as needed */
+      border: none;
+      opacity: 0;
+      background-color: #e5e5e500; /* Set the desired background color */
+      margin: 10px 0; /* Adjust the margin to control the space */
+    }
+    .btn a {
+    color: inherit; /* Inherit text color from the parent button (white in this case) */
+    text-decoration: none; /* Remove underline from the link */
+    font-weight: bold;
+    
+  }
+    #completedbtn {
+    color: rgb(255, 255, 255); /* Inherit text color from the parent button (white in this case) */
+    text-decoration: none; /* Remove underline from the link */
+    font-weight: bold;
+    }
+    #homebtn {
+      background-color: black;
+    }
+
+    body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label, select, textarea, input[type="submit"] {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
 </style>
 <body>
+
+  <h5><b>Log new inspection</b></h5>
+  <form id="newServiceCall-form">
+
+      <div class="form-group">
+      <label for="type">Type of Inspection:</label>
+      <select id="type" name="typeOfInspection" class="form-control">
+        <option value=""> </option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+        <option value="quarterly">Quarterly</option>
+    </select>
+      </div>
+
+      <div class="form-group">
+          <label for="name">Enter Your Name:</label>
+          <input type="text" id="name" name="name" class="form-control">
+      </div>
+
+      <div class="form-group">
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" class="form-control">
+      </div>
+
+
+      <div class="form-group">
+          <label for="report">Report:</label>
+          <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+  
+
+  <br><br> <br>
+
+
     <div class="list-container">
         <hr>
-        <h3><b>CheckLists & Scoop of Work</b></h3>
+        <button id="viewChecklists">View Checklists</button>
+        <div class="checklist-container">
+        <h3><b>Inspections and checklists</b></h3>
+        
+
         
         <div class="inspections">
           <div class="inspection-list">
@@ -84,5 +178,23 @@
           </div>
         </div>
       </div>
+      </div>
+
+
+      
+      <script>
+        // JavaScript to handle the button click event
+        document.getElementById('viewChecklists').addEventListener('click', function () {
+            var checklistContainer = document.querySelector('.checklist-container');
+            // Toggle the visibility of the inspection lists
+            if (checklistContainer.style.display === 'none') {
+                checklistContainer.style.display = 'block';
+            } else {
+                checklistContainer.style.display = 'none';
+            }
+        });
+    </script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </body>
 </html>

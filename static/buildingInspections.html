@@ -1,38 +1,287 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Type of Units Dropdown</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Inspections</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
+<style>
+    .custom-navbar {
+        background-color: #022944;
+        font-weight: bold;
+    }
+
+    /* Adjust the color of the navigation links */
+    .custom-navbar .navbar-nav .nav-link {
+        color: #fff;
+    }
+
+    /* Adjust the color of the active navigation link */
+    .custom-navbar .navbar-nav .nav-item.active .nav-link {
+        color: #9e6d1e;
+    }
+
+    .custom-navbar .navbar-toggler-icon {
+        opacity: 0.7;
+        background-color: #ffffff;
+    }
+
+    /* Style for the horizontal form */
+    .horizontal-form .form-group {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    /* Style for the horizontal buttons */
+    .horizontal-buttons .btn {
+        margin-right: 10px;
+    }
+
+
+    /* Inspections */
+    .inspection-block {
+            border: 1px solid #0c0101;
+            width: 370px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: rgb(235, 235, 235);
+            
+        }
+
+        .task-label {
+            
+        }
+
+        .select-button {
+            margin-top: 10px;
+        }
+
+</style>
+
 <body>
 
-<hr><hr>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">HOME</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="buildingInspections.html">INSPECTIONS<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inspectionsHisotry.html">INSPECTIONS HISTORY</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="container d-flex justify-content-center">
-    <div class="">
-        <h2 class="text-center">Type of Inspection:</h2>
-        <div class="d-flex justify-content-center">
-            <select id="unitType" class="form-control w-100">
-                <option value="option1"></option>
-                <option value="option1">HVAC</option>
-                <option value="option2">Elevators</option>
-                <option value="option3">Escalators</option>
-                <option value="option4">Fire System</option>
-                <option value="option5">Option 5</option>
-            </select>
+    <div class="container mt-3">
+        <form class="form-inline horizontal-form">
+            <div class="form-group">
+                
+                <select id="filterEmployee" class="form-control">
+                    <option value="">All Employees</option>
+                    <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                    <option value="Sanym Martinez">Sanym Martinez</option>
+                    <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                    <!-- Add more employee options as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                
+                <select id="filterType" class="form-control">
+                    <option value="">All Types</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quarterly">Quarterly</option>
+                    <!-- Add more type options as needed -->
+                </select>
+            </div>
+
+            <div class="form-group horizontal-buttons">
+                <button type="submit" class="btn btn-primary" id="applyButton">Apply</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Inspections -->
+    <div class="container">
+        <br><br>
+        <div class="row">
+            <div class="col-md-6 ml-0">
+                <div class="inspection-block">
+                    <h4>Reydel Gutierrez</h4>
+                    <p>Daily Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Physically inspect the chillers plant.</li>
+                        <li class="task-label">Maintain accurate records of maintenance activities, including work orders, inspections, and repairs.</li>
+                        <li class="task-label">Monitor Fire Panel at least once a day to look for new troubles </li>
+                        <li class="task-label">Check Building Automation System for Alarms or Alerts</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Reydel Gutierrez</h4>
+                    <p>Weekly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Inspect and maintain elevators & escalator</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Reydel Gutierrez</h4>
+                    <p>Monthly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Review status of pest control inspections and treatments with vendor.</li>
+                        <li class="task-label">Walk underrail area to identify issues.</li>
+                        <li class="task-label">Performing water meters readingsor all retails and residentials spaces, (23 metters) (Each 9th)</li>
+                        <li class="task-label">Performing elctrical meters readings for all retails and residential Spaces.</li>
+                        <li class="task-label">Adjust lighting as needed to implement energy-saving measures.</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Reydel Gutierrez</h4>
+                    <p>Quarterly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Chiller annual/quarterly inspentions with vendor</li>
+                        <li class="task-label">Fire sprinkler inspection with vendor (city fire)</li>
+                        <li class="task-label">chiller plant water trement with vendor (advance water)</li>
+
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Anselmo de la Osa</h4>
+                    <p>Daily Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Walk throught out the building to identify any issues or concerns</li>
+                        <li class="task-label">Lighting and paver check throughtout the property</li>
+                        <li class="task-label">Oversee irrigation systems on a daily basis.</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Anselmo de la Osa</h4>
+                    <p>Weekly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Inspect electrical panels</li>
+                        <li class="task-label">Inspect landscape to report to vendor any issues. </li>
+                        <li class="task-label">Check and adjust automation in Irrigation Sprinkles.</li>
+                        <li class="task-label">Inspect HVAC equipments and systems (Split Units)</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Anselmo de la Osa</h4>
+                    <p>Monthly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Conduct water test for underground tanks </li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Sanym Martinez</h4>
+                    <p>Daily Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Check with current contractors and vendors to ensure that tasks are progressing and meeting expectacions. </li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Sanym Martinez</h4>
+                    <p>Weekly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Inspect and maintain generators, fuel current capacity and more</li>
+                        <li class="task-label">Inspect undergroung tanks</li>
+                        <li class="task-label">Inspect and maintain security systems, Example: Doors and Locks</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Sanym Martinez</h4>
+                    <p>Monthly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Generator testing and maintenance</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
+            <div class="col-md-6 mr-0">
+                <!-- Add more inspection blocks here with the same structure -->
+                <div class="inspection-block">
+                    <h4>Sanym Martinez</h4>
+                    <p>Quarterly Inspection</p>
+                    <h5>Tasks:</h5>
+                    <ul>
+                        <li class="task-label">Check and schedule building inspections. example: 1 year fire system inspection.</li>
+                        <li class="task-label">chiller plant water trement with vendor (advance water) coordinate.</li>
+                    </ul>
+                    <button class="btn btn-primary select-button">Select</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    const dropdown = document.getElementById('unitType');
-
-    dropdown.addEventListener('change', (event) => {
-        const selectedOption = event.target.value;
-        console.log('Selected Option:', selectedOption);
-        // You can perform any desired actions based on the selected option here.
-    });
-</script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Event handler for the Apply button
+        document.getElementById('applyButton').addEventListener('click', function (e) {
+            e.preventDefault();
+            var selectedEmployee = document.getElementById('filterEmployee').value;
+            var selectedType = document.getElementById('filterType').value;
+            alert("Selected Employee: " + selectedEmployee + "\nSelected Type: " + selectedType);
+        });
+    </script>
 </body>
+
 </html>

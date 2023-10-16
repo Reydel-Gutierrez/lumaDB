@@ -77,21 +77,16 @@ const serviceCallSchema = new mongoose.Schema({
 
 ServiceCall = mongoose.model('ServiceCall', serviceCallSchema);
 
-//db route for user sign in
+//inspection model
+const newInspectionSchema = new mongoose.Schema({
+  title: String,
+  date: Date,
+  name: String,
+  report: String
+});
 
-// const signinSchema = new mongoose.Schema({
-//   username: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//   },
-// });
-
-// const signinUser = mongoose.model('signinUser', signinSchema);
+// Create the InspectionReport model
+newInspection = mongoose.model('newInspection', newInspectionSchema);
 
 
 //exporting modules
@@ -100,6 +95,7 @@ module.exports = {
     newWorkOrder,
     pastWorkOrder,
     ServiceCall,
+    newInspection,
     // signinUser,
     createConnection,
     connection

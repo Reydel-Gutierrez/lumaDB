@@ -210,6 +210,46 @@ app.post('/signin', async (req, res) => {
     }
   });
 
+
+//inspections
+
+const {newInspection} = require('./db/db.js');
+
+  app.post('/newInspection', async (req, res) => {
+    try {
+      const { title, date, name, report } = req.body;
+      console.log(title);
+  
+      // Save the inspection report to the database
+      const inspection = new newInspection({ title, date, name, report });
+      await inspection.save();
+  
+      // Return a success response
+      res.status(200).json({ message: 'Inspection report submitted successfully' });
+    } catch (error) {
+      console.error('Error submitting inspection report:', error);
+      // Return an error response
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+
+  app.get('/viewInspections', async (req, res) => {
+    try {
+      // Fetch all inspection reports from the database
+      const viewInspections = await newInspection.find().sort({ date: -1 });
+  
+      // Return the reports as JSON response
+      res.status(200).json({ viewInspections });
+    } catch (error) {
+      console.error('Error fetching inspection reports:', error);
+      // Return an error response
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+
+
 //start server
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}`);

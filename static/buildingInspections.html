@@ -85,7 +85,7 @@
                     <a class="nav-link" href="buildingInspections.html">INSPECTIONS<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="inspectionsHisotry.html">INSPECTIONS HISTORY</a>
+                    <a class="nav-link" href="viewInspections.html">INSPECTIONS HISTORY</a>
                 </li>
             </ul>
         </div>
@@ -127,10 +127,10 @@
     <div class="container">
         <br><br>
         <div class="row">
+
             <div class="col-md-6 ml-0">
                 <div class="inspection-block">
-                    <h4>Reydel Gutierrez</h4>
-                    <p>Daily Inspection</p>
+                    <h4>Daily Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Physically inspect the chillers plant.</li>
@@ -138,34 +138,69 @@
                         <li class="task-label">Monitor Fire Panel at least once a day to look for new troubles </li>
                         <li class="task-label">Check Building Automation System for Alarms or Alerts</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="dailyRInspectionForm" onsubmit="submitInspection('dailyRInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="R Daily Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
+
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Reydel Gutierrez</h4>
-                    <p>Weekly Inspection</p>
+                    <h4>Weekly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Inspect and maintain elevators & escalator</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="weeklyRInspectionForm" onsubmit="submitInspection('weeklyRInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="R Weekly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Reydel Gutierrez</h4>
-                    <p>Monthly Inspection</p>
+                    <h4>Monthly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Review status of pest control inspections and treatments with vendor.</li>
@@ -174,18 +209,35 @@
                         <li class="task-label">Performing elctrical meters readings for all retails and residential Spaces.</li>
                         <li class="task-label">Adjust lighting as needed to implement energy-saving measures.</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="montlhyRInspectionForm" onsubmit="submitInspection('monthlyRInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="R Monthly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Reydel Gutierrez</h4>
-                    <p>Quarterly Inspection</p>
+                    <h4>Quarterly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Chiller annual/quarterly inspentions with vendor</li>
@@ -193,36 +245,70 @@
                         <li class="task-label">chiller plant water trement with vendor (advance water)</li>
 
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="quarterlyRInspectionForm" onsubmit="submitInspection('quarterlyRInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="R Quarterly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Anselmo de la Osa</h4>
-                    <p>Daily Inspection</p>
+                    <h4>Daily Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Walk throught out the building to identify any issues or concerns</li>
                         <li class="task-label">Lighting and paver check throughtout the property</li>
                         <li class="task-label">Oversee irrigation systems on a daily basis.</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="dailyAInspectionForm" onsubmit="submitInspection('dailyAInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="A Daily Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Anselmo de la Osa</h4>
-                    <p>Weekly Inspection</p>
+                    <h4>Weekly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Inspect electrical panels</li>
@@ -230,94 +316,197 @@
                         <li class="task-label">Check and adjust automation in Irrigation Sprinkles.</li>
                         <li class="task-label">Inspect HVAC equipments and systems (Split Units)</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="weeklyAInspectionForm" onsubmit="submitInspection('weeklyAInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="A Weekly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Anselmo de la Osa</h4>
-                    <p>Monthly Inspection</p>
+                    <h4>Monthly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Conduct water test for underground tanks </li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="MonthlyAInspectionForm" onsubmit="submitInspection('MonthlyAInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="A Monthly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Sanym Martinez</h4>
-                    <p>Daily Inspection</p>
+                    <h4>Daily Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Check with current contractors and vendors to ensure that tasks are progressing and meeting expectacions. </li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="dailySInspectionForm" onsubmit="submitInspection('dailySInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="S Daily Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Sanym Martinez</h4>
-                    <p>Weekly Inspection</p>
+                    <h4>Weekly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Inspect and maintain generators, fuel current capacity and more</li>
                         <li class="task-label">Inspect undergroung tanks</li>
                         <li class="task-label">Inspect and maintain security systems, Example: Doors and Locks</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="weeklySInspectionForm" onsubmit="submitInspection('weeklySInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="S Weekly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Sanym Martinez</h4>
-                    <p>Monthly Inspection</p>
+                    <h4>Monthly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Generator testing and maintenance</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="monthlySInspectionForm" onsubmit="submitInspection('monthlySInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="S Monthly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mr-0">
                 <!-- Add more inspection blocks here with the same structure -->
                 <div class="inspection-block">
-                    <h4>Sanym Martinez</h4>
-                    <p>Quarterly Inspection</p>
+                    <h4>Quarterly Inspection</h4>
                     <h5>Tasks:</h5>
                     <ul>
                         <li class="task-label">Check and schedule building inspections. example: 1 year fire system inspection.</li>
                         <li class="task-label">chiller plant water trement with vendor (advance water) coordinate.</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="report">Report:</label>
-                        <textarea type="text" id="report" name="report" rows="5" cols="30" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-primary select-button">Submit</button>
+                    <form id="quarterlySInspectionForm" onsubmit="submitInspection('quarterlySInspectionForm'); return false;">
+                        <div class="form-group">
+                        <input type="hidden" id="title" name="title" value="S Quarterly Inspection">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" class="form-control">
+                        </div>                
+                        <div class="form-group">
+                            <label for="name">Select your Name:</label>
+                            <select id="name" name="name" class="form-control">
+                                <option value=" "> </option>
+                                <option value="Anselmo De La Osa">Anselmo De La Osa</option>
+                                <option value="Sanym Martinez">Sanym Martinez</option>
+                                <option value="Reydel Gutierrez">Reydel Gutierrez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyReport">Report:</label>
+                            <textarea id="dailyReport" name="report" rows="5" cols="30" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary select-button">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -326,6 +515,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="routes/inspectionsRoute.js"></script>
     <script>
         // Event handler for the Apply button
         document.getElementById('applyButton').addEventListener('click', function (e) {
